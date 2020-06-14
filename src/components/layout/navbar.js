@@ -3,9 +3,10 @@ import React, { Component } from "react";
 class NavBar extends Component {
   componentDidMount() {
     const M = window.M;
+
     document.addEventListener("DOMContentLoaded", function() {
-      var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems, {});
+      var elems = document.querySelectorAll(".dropdown-trigger");
+      var instances = M.Dropdown.init(elems, {});
     });
   }
 
@@ -13,71 +14,74 @@ class NavBar extends Component {
     return (
       <div>
         <nav className="z-depth-4">
-          <div className="nav-wrapper blue-grey darken-4 ">
-            <a
-              href="#"
-              data-target="slide-out"
-              className="sidenav-trigger show-on-large "
-            >
-              <i className="material-icons">menu</i>
+          <div className="nav-wrapper blue-grey darken-4">
+            <a href="#" className="brand-logo">
+              <img
+                src="images/logo.png"
+                className="wrapper"
+                width="auto"
+                height="75px"
+              />
             </a>
-            <a href="#" className="brand-logo center blue-text text-lighten-4">
-              Monitoring Analytics
-            </a>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/nishant-baheti-917739136/">
-                  About Me
+
+            <ul id="nav-mobile" className="right">
+              <div>
+                <a
+                  class="dropdown-trigger btn-large blue-grey darken-2"
+                  href="#"
+                  data-target="dropdown1"
+                >
+                  <div>
+                    <img
+                      src="images/logo512.png"
+                      className="center circle left "
+                      width="40"
+                      height="40"
+                    />
+
+                    <span className="white-text right">Nishant Baheti</span>
+                  </div>
                 </a>
-              </li>
+              </div>
+              <ul
+                id="dropdown1"
+                className="dropdown-content blue-grey darken-2"
+              >
+                <li>
+                  <a href="#email">
+                    <span className="subheader white-text">
+                      <i className="material-icons white-text">email</i>
+                      xyz@gmail.com
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a className=" white-text">
+                    <i className="material-icons white-text">contact_phone</i>
+                    +91-9876543210
+                  </a>
+                </li>
+                <li className="divider" tabindex="-1"></li>
+                <li>
+                  <a
+                    href="http://www.google.com"
+                    className="waves-effect white-text"
+                  >
+                    <i className="material-icons white-text">web</i>Linkedin
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="waves-effect white-text"
+                    href="https://www.github.com/nishantbaheti"
+                  >
+                    <i className="material-icons white-text">help</i>Github
+                  </a>
+                </li>
+              </ul>
             </ul>
           </div>
         </nav>
-        <ul id="slide-out" className="sidenav blue-grey darken-4">
-          <li>
-            <div className="user-view">
-              <div className="background">
-                <img src="images/nishant.jpg" />>
-              </div>
-              <a href="#user">
-                <img className="circle" src="images/nishant.jpg" />>
-              </a>
-              <a href="#name">
-                <span className="white-text name">Nishant Baheti</span>
-              </a>
-              <a href="#email">
-                <span className="white-text email">
-                  nishantbaheti.it19@gmail.com
-                </span>
-              </a>
-            </div>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/nishant-baheti-917739136/"
-              className="waves-effect white-text"
-            >
-              <i className="material-icons white-text">linkedin</i>Who Am I
-            </a>
-          </li>
-          <li>
-            <div className="divider"></div>
-          </li>
-          <li>
-            <a className="subheader white-text">
-              <i className="material-icons white-text">contact_phone</i>
-              +91-9461416717
-            </a>
-          </li>
-          <li>
-            <a className="waves-effect white-text" href="#!">
-              <i className="material-icons white-text">Guide</i>Help Guide!
-            </a>
-          </li>
-        </ul>
       </div>
     );
   }

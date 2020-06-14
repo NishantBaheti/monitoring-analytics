@@ -12,7 +12,7 @@ class Chart1 extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://192.168.1.117:5000").then(res => {
+    axios.get("http://127.0.0.1:5000").then(res => {
       var trendData = res["data"]["data"];
       for (var i = 0; i < trendData.length; i++) {
         trendData[i]["x"] = new Date(trendData[i]["x"]);
@@ -30,8 +30,8 @@ class Chart1 extends Component {
         text: "Live Feed"
       },
       axisY: {
-        title: "Simulation Values",
-        suffix:"",
+        title: "Data",
+        suffix: "",
         includeZero: true
       },
       axisX: {
@@ -52,9 +52,11 @@ class Chart1 extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col s12 blue-grey darken-4 z-depth-2">
-            <h2 className="center green-text text-lighten-3 z-depth-4">Simulations</h2>
-          </div>
+          {/* <div className="col s12 blue-grey darken-4 z-depth-2">
+            <h2 className="center green-text text-lighten-3 z-depth-4">
+              Simulations
+            </h2>
+          </div> */}
           <div className="col s12 m4 l2">
             <div className="row">
               <div>
